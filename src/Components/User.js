@@ -4,6 +4,7 @@ import ErrorModal from './ErrorModal';
 const User = (props) => {
   const[enteredName,setenteredName]=useState('');
   const[enteredAge,setenteredAge]=useState('');
+  const[enteredCollege,setenteredCollege]=useState('');
   const [Error,setError]=useState();
     const formHandler= event =>{
       event.preventDefault();
@@ -19,7 +20,7 @@ const User = (props) => {
       })
         return;
       }
-      props.onAdduser(enteredName,enteredAge);
+      props.onAdduser(enteredName,enteredAge,enteredCollege);
       setenteredName('');
       setenteredAge('');
     }
@@ -28,6 +29,9 @@ const User = (props) => {
     }
     const ageHandler=event =>{
       setenteredAge(event.target.value);
+    }
+    const collegeHandler=event =>{
+      setenteredCollege(event.target.value);
     }
     const errorHandler=()=>{
       setError(null);
@@ -40,6 +44,8 @@ const User = (props) => {
         <input id='name' type='text' onChange={nameHandler} value={enteredName} className='input'></input>
         <label className='label' htmlFor='age'>Age</label>
         <input id='age' type='number'onChange={ageHandler} value={enteredAge} className='input'></input>
+        <label className='label' htmlFor='college'>College</label>
+        <input id='college' type='text'onChange={collegeHandler} value={enteredCollege} className='input'></input>
         <div>
         <button type='submit' className='submit'>Add User</button>
         </div>

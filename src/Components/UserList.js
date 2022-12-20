@@ -3,7 +3,7 @@ import './UserList.css';
 const UserList = (props)=>{
     return <ul>
         {props.users.map((user)=>{
-            return <li className="cardshape" key={user.id}> {user.name} {user.age} (Years Old) </li>
+            return <li className="cardshape" key={user.id}> {user.name} {user.age} (Years Old) {user.college} </li>
         })}
     </ul>
 }
